@@ -1,6 +1,6 @@
 *** Settings ***
 Library     SeleniumLibrary
-Resource    Marketing Cycle Detail.resource
+Resource    ../Marketing_Cycle_Detail_Folder/Marketing_Cycle_Detail.resource
 
 *** Variables ***
 # Create Marketing Cycle Detail XPath
@@ -57,25 +57,3 @@ Create Target KPI
     Click Button    ${YEAR_DROPDOWN_XPATH}
     Click Element   ${YEAR_OPTION_XPATH}
     Click Element    ${SAVE_BUTTON_XPATH}
-
-Edit Target KPI
-    Sleep    10s
-    Wait Until Element Is Visible   ${TARGET_KPI_EDIT_ACTION_BUTTON_XPATH}      10s
-    Click Button    ${TARGET_KPI_EDIT_ACTION_BUTTON_XPATH}
-    Wait Until Element Is Visible    ${EDIT_ACTION_MC_DETAIL_XPATH}    10s
-    Click Element    ${EDIT_ACTION_MC_DETAIL_XPATH}
-    Wait Until Page Contains    ${EDIT_PAGE_HEADING}   10s
-    Sleep    5s
-    Input Text    ${TARGET_COVERAGE_XPATH}    90
-    Click Button    ${SAVE_BUTTON_XPATH}
-
-Delete Target KPI
-    Sleep    10s
-    Wait Until Element Is Visible     ${TARGET_KPI_DELETE_ACTION_BUTTON_XPATH}   10s
-    Click Element     ${TARGET_KPI_DELETE_ACTION_BUTTON_XPATH}
-    Wait Until Element Is Visible    ${DELETE_ACTION_MC_DETAIL_XPATH}   10s
-    Click Element    ${DELETE_ACTION_MC_DETAIL_XPATH}
-    Sleep    5s
-    Wait Until Element Is Visible    ${DELETE_CONFIRM_BUTTON_XPATH}  10s
-    Click Element    ${DELETE_CONFIRM_BUTTON_XPATH}
-    Sleep    20s
