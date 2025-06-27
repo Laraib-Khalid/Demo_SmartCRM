@@ -1,6 +1,6 @@
 *** Settings ***
 Library     SeleniumLibrary
-Resource    ../Business_Unit_Folder/Business_Unit.robot
+Resource    ../Business_Unit_Folder/Business_Unit.resource
 Resource    ../TCL_Folder/TCL.resource
 
 *** Variables ***
@@ -11,10 +11,11 @@ ${SEARCH_USER_OPTION_XPATH}     xpath=(//lightning-base-combobox-item[@class='sl
 ${USER_BU_ACTIVE_CHECKBOX_XPATH}    xpath=//input[@name='Active__c']
 #${USER_BU_XPATH_OPTION}    xpath=//lightning-base-combobox-formatted-text[@title='US Test Business Unit']
 ${USER_BU_START_DATE_OPTION}    Mar 1, 2025
-${USER_BU_END_DATE_OPTION}    May 31, 2025
+${USER_BU_END_DATE_OPTION}    June 30, 2025
 ${SEARCH_BUSINESS_UNIT_DROWNDOWN_XPATH}  xpath=(//input[contains(@id,'combobox-input-')])[2]
 ${SEARCH_BUSINESS_UNIT_DROWNDOWN_OPTIONS_XPATH}     xpath=//lightning-base-combobox-item[@class='slds-media slds-listbox__option slds-media_center slds-listbox__option_entity' and @role='option']
 ${SEARCH_BUSINESS_UNIT_OPTION_XPATH}      xpath=(//lightning-base-combobox-item[@class='slds-media slds-listbox__option slds-media_center slds-listbox__option_entity' and @role='option'])[2]
+#${SEARCH_BUSINESS_UNIT_OPTION_XPATH}      xpath=//lightning-base-combobox-formatted-text[contains(@title,"${BU_NAME}")]
 ${CREATE_BUTTON_XPATH}    xpath=//button[contains(.,'Create')]
 ${USER_BU_EDIT_ACTION_BUTTON_XPATH}  xpath=//button[@class='slds-button slds-button_icon-border slds-button_icon-x-small']
 ${EDIT_ACTION_USER_BU_XPATH}    xpath=//a[@title='Edit']

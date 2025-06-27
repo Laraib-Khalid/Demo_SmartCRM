@@ -16,7 +16,7 @@ ${BRICK_DESCRIPTION_XPATH}   xpath=//textarea[@class='slds-textarea']
 ${ACCOUNT_CHANNEL_DROPDOWN_XPATH}     xpath=//button[@aria-label='Channel']
 ${BRICK_CHANNEL_OPTION_XPATH}     xpath=//lightning-base-combobox-item[@role='option' and @data-value='Brick']
 ${COUNTRY_DROPDOWN_XPATH}     xpath=//button[@aria-label='Country']
-${COUNTRY_OPTION_XPATH}     xpath=//lightning-base-combobox-item[@role='option' and @data-value='United States']
+${COUNTRY_OPTION_XPATH}     xpath=//lightning-base-combobox-item[@role='option' and @data-value='United Arab Emirates']
 #${BRICK_COUNTRY_DROPDOWN_XPATH}     xpath=//div[@data-target-selection-name="sfdc:RecordField.Account.Country__c"]//button[@aria-label='Country']
 
 # Search and Create Brick Account XPath

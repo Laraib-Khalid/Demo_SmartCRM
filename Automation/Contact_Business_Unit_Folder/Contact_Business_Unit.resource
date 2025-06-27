@@ -8,7 +8,7 @@ ${CONTACT_RELATED_TAB}  xpath=//a[@id='flexipage_tab__item' and @data-label='Rel
 ${CONTACT_BUSINESS_UNIT_NEW_BUTTON}  xpath=(//button[contains(.,'New')])[1]
 ${NEW_CONTACT_BUSINESS_UNIT_PAGE}  New Contact Business Unit
 ${CONTACT_BUSINESS_UNIT_COUNTRY_DROWNDOWN_XPATH}  xpath=//div[@data-target-selection-name="sfdc:RecordField.Contact_Business_Unit__c.Country__c"]//button[@aria-label='Country']
-${CONTACT_BUSINESS_UNIT_COUNTRY_OPTION_XPATH}  xpath=//div[@data-target-selection-name="sfdc:RecordField.Contact_Business_Unit__c.Country__c"]//lightning-base-combobox-item[@role='option' and @data-value='United States']
+${CONTACT_BUSINESS_UNIT_COUNTRY_OPTION_XPATH}  xpath=//div[@data-target-selection-name="sfdc:RecordField.Contact_Business_Unit__c.Country__c"]//lightning-base-combobox-item[@role='option' and @data-value='United Arab Emirates']
 #${SEARCH_BUSINESS_UNIT_DROWNDOWN_XPATH}  xpath=(//input[contains(@id,'combobox-input-')])[2]
 ${SEARCH_CONTACT_BUSINESS_UNIT_DROWNDOWN_XPATH}  xpath=//div[@data-target-selection-name="sfdc:RecordField.Contact_Business_Unit__c.Business_Unit__c"]//input[contains(@placeholder,'Business Unit')]
 #${SEARCH_CONTACT_BUSINESS_UNIT_TEXT}  US-ENT & Surgery

@@ -6,13 +6,14 @@ Resource    ../Marketing_Cycle_Folder/Marketing_Cycle.resource
 *** Variables ***
 ${CONTACT_TCL_NEW_BUTTON}  xpath=(//button[contains(.,'New')])[4]
 ${NEW_CONTACT_TCL_PAGE}  New Target Customer List
+${CONTACT_PRIORITY_OPTION_XPATH}        B
 #${SEARCH_CONTACT_TCL_DROWNDOWN_XPATH}  xpath=(//input[contains(@id,'combobox-input-')])[2]
 #${SEARCH_CONTACT_TCL_TEXT}  US-ENT & Surgery
 #${SEARCH_CONTACT_TCL_DROWNDOWN_OPTIONS_XPATH}     xpath=//lightning-base-combobox-item[@class='slds-media slds-listbox__option slds-media_center slds-listbox__option_entity' and @role='option']
 #${SEARCH_CONTACT_TCL_DROWNDOWN_OPTIONS_XPATH}     xpath=//div[@data-target-selection-name="sfdc:RecordField.Target_Customer_List__c.Target__c"]//lightning-base-combobox-item[@class='slds-media slds-listbox__option slds-media_center slds-listbox__option_entity' and @role='option']
 #${SEARCH_CONTACT_TCL_OPTION_XPATH}      xpath=(//lightning-base-combobox-item[@class='slds-media slds-listbox__option slds-media_center slds-listbox__option_entity' and @role='option'])[2]
 ${SEARCH_USER_DROPDOWN_XPATH}    xpath=//input[@placeholder='Search People...']
-${SEARCH_USER_TEXT}     Asad
+${SEARCH_USER_TEXT}     QA Team
 ${TCL_SEARCH_USER_DROPDOWN_OPTIONS_XPATH}   xpath=//div[@data-target-selection-name="sfdc:RecordField.Target_Customer_List__c.Target__c"]//lightning-base-combobox-item[@class='slds-media slds-listbox__option slds-media_center slds-listbox__option_entity' and @role='option']
 ${TCL_SEARCH_USER_OPTION_XPATH}     xpath=(//div[@data-target-selection-name="sfdc:RecordField.Target_Customer_List__c.Target__c"]//lightning-base-combobox-item[@class='slds-media slds-listbox__option slds-media_center slds-listbox__option_entity' and @role='option'])[2]
 ${TCL_ACTIVE_CHECKBOX_XPATH}    xpath=//div[@data-target-selection-name="sfdc:RecordField.Target_Customer_List__c.Active__c"]//input[@name='Active__c']

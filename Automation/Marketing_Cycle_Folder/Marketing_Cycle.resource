@@ -10,16 +10,17 @@ ${MC_NAME}       US Marketing Cycle
 ${MC_START_DATE_XPATH}     xpath=//div[@data-target-selection-name='sfdc:RecordField.Marketing_Cycle__c.Start_Date__c']//input[@name='Start_Date__c']
 ${START_DATE_OPTION}     2025-03-01
 ${MC_END_DATE_XPATH}     xpath=//div[@data-target-selection-name="sfdc:RecordField.Marketing_Cycle__c.End_Date__c"]//input[@name='End_Date__c']
-${END_DATE_OPTION}     2025-05-31
+${END_DATE_OPTION}     2025-06-30
 ${MC_COUNTRY_DROPDOWN_XPATH}     xpath=//div[@data-target-selection-name="sfdc:RecordField.Marketing_Cycle__c.Country__c"]//button[@aria-label='Country']
-${MC_COUNTRY_OPTION_XPATH}     xpath=//div[@data-target-selection-name="sfdc:RecordField.Marketing_Cycle__c.Country__c"]//lightning-base-combobox-item[@role='option' and @data-value='United States']
+${MC_COUNTRY_OPTION_XPATH}     xpath=//div[@data-target-selection-name="sfdc:RecordField.Marketing_Cycle__c.Country__c"]//lightning-base-combobox-item[@role='option' and @data-value='United Arab Emirates']
 
 # Search Marketing Cycle XPath
 ${ENTER_MC_TEXT}    Marketing Cycle
 ${RESULT_MC_TEXT}     xpath=//p[@class='slds-truncate'][contains(.,'Marketing Cycle')]
 ${MC_PAGE_HEADING}     xpath=//h1[@class='slds-var-p-right_x-small'][contains(.,'Marketing Cycle')]
 ${FILTER_MC_XPATH}     xpath=//button[contains(@title,'Select a List View: Marketing Cycle')]
-${SELECT_ALL_US_MC_XPATH}     xpath=//span[@title='US - Marketing Cycle']
+#${SELECT_ALL_US_MC_XPATH}     xpath=//span[@title='US - Marketing Cycle']
+${SELECT_ALL_US_MC_XPATH}     xpath=//span[@title='All']
 #${SELECT_ALL_US_MC_XPATH}     xpath=//a[contains(.,'US - Marketing Cycle')]
 ${SEARCH_MC_XPath}      xpath=//a[@title='${MC_NAME}']
 

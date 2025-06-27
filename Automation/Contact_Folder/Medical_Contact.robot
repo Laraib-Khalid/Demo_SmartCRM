@@ -49,15 +49,17 @@ Create Medical Contact
     Input Text    ${NEW_MEDICAL_EMAIL_XPATH}     ${EMAIL}
     Input Text    ${NEW_MEDICAL_MOBILE_PHONE_XPATH}    ${MOBILE}
     Input Text    ${NEW_MEDICAL_PHONE_XPATH}    ${PHONE}
-    Select Checkbox    ${NEW_MEDICAL_EMAIL_OPTIN_XPATH}
+
+#    Select Checkbox    ${NEW_MEDICAL_EMAIL_OPTIN_XPATH}
 #    Checkbox Should Be Selected    ${NEW_MEDICAL_EMAIL_OPTIN_XPATH}
 #    Scroll Element Into View    ${NEW_MEDICAL_SHIPPING_ADDRESS_DROPDOWN_XPATH}
+#
 #    Mouse Down     ${NEW_MEDICAL_SHIPPING_ADDRESS_DROPDOWN_XPATH}
 #    Input Text    ${NEW_MEDICAL_SHIPPING_ADDRESS_DROPDOWN_XPATH}    ${MAILNG_ADDRESS}
 #    Sleep    10s
 #    Wait Until Element Is Visible    ${NEW_MEDICAL_SHIPPING_ADDRESS_SEARCH_RESULT}    10s
 #    Click Element    ${NEW_MEDICAL_SHIPPING_ADDRESS_SEARCH_RESULT}
-    Sleep    10s
+#    Sleep    10s
     Click Button    ${SAVE_BUTTON_XPATH}
 
 Search and Create Medical Contact

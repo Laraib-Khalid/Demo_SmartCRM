@@ -35,7 +35,9 @@ ${NEW_MEDICAL_PHONE_XPATH}  xpath=//input[@name='Phone']
 #${NEW_MEDICAL_PHONE}    1234567890
 ${NEW_MEDICAL_SHIPPING_ADDRESS_DROPDOWN_XPATH}  xpath=(//input[normalize-space(@placeholder)='Search Address'])[1]
 #${NEW_MEDICAL_SHIPPING_ADDRESS_SEARCH_TEXT}   Soldotna, Alaska 99669, USA
-${NEW_MEDICAL_SHIPPING_ADDRESS_SEARCH_RESULT}  xpath=//*[contains(@data-item-id,'combobox-input-')][3]
+${NEW_MEDICAL_SHIPPING_ADDRESS_SEARCH_RESULT}  (//input[@placeholder='Search Address'])[1]//following::div[contains(@class, 'slds-dropdown')][1]
+#${NEW_MEDICAL_SHIPPING_ADDRESS_SEARCH_OPTION}  xpath=//*[contains(@data-item-id,'combobox-input-')][1]
+${NEW_MEDICAL_SHIPPING_ADDRESS_SEARCH_OPTION}       xpath=(//input[@placeholder='Search Address'])[1]//following::div[contains(@class, 'slds-dropdown')][1]//lightning-base-combobox-item[1]//span[2]
 ${NEW_MEDICAL_EMAIL_OPTIN_XPATH}  xpath=//input[@name='hasEmailOptIn__c']
 
 # Search Contact XPath
@@ -44,6 +46,6 @@ ${ENTER_CONTACT_TEXT}   Contacts
 ${RESULT_CONTACT_TEXT}     xpath=//p[contains(.,'Contacts')]
 ${CONTACT_PAGE_HEADING}     xpath=//h1[@class='slds-var-p-right_x-small'][contains(.,'Contacts')]
 ${FILTER_CONTACT_XPATH}     xpath=//button[@title='Select a List View: Contacts']
-${SELECT_ALL_US_CONTACT_XPATH}     xpath=//span[@title='US - All Contacts']
+${SELECT_ALL_US_CONTACT_XPATH}     xpath=//span[@title='AE - All Contacts']
 ${SEARCH_CONTACT_XPATH}    xpath=//input[@placeholder='Search this list...']
  # Replace with the actual locator of the "medical contact name" element

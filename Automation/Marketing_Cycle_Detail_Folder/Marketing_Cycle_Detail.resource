@@ -11,7 +11,7 @@ ${SEARCH_MC_DETAIL_BUSINESS_UNIT_DROWNDOWN_XPATH}   xpath=//div[@data-target-sel
 ${SEARCH_MC_DETAIL_BUSINESS_UNIT_DROWNDOWN_OPTIONS_XPATH}     xpath=//div[@data-target-selection-name="sfdc:RecordField.MarketingCycleDetail__c.Business_Unit__c"]//lightning-base-combobox-item[@class='slds-media slds-listbox__option slds-media_center slds-listbox__option_entity' and @role='option']
 ${SEARCH_MC_DETAIL_BUSINESS_UNIT_OPTION_XPATH}      xpath=(//div[@data-target-selection-name="sfdc:RecordField.MarketingCycleDetail__c.Business_Unit__c"]//lightning-base-combobox-item[@class='slds-media slds-listbox__option slds-media_center slds-listbox__option_entity' and @role='option'])[2]
 ${MC_DETAIL_COUNTRY_DROPDOWN_XPATH}     xpath=//div[@data-target-selection-name='sfdc:RecordField.MarketingCycleDetail__c.Country__c']//button[@aria-label='Country']
-${MC_DETAIL_COUNTRY_OPTION_XPATH}     xpath=//div[@data-target-selection-name='sfdc:RecordField.MarketingCycleDetail__c.Country__c']//lightning-base-combobox-item[@role='option' and @data-value='United States']
+${MC_DETAIL_COUNTRY_OPTION_XPATH}     xpath=//div[@data-target-selection-name='sfdc:RecordField.MarketingCycleDetail__c.Country__c']//lightning-base-combobox-item[@role='option' and @data-value='United Arab Emirates']
 
 
 ${MC_DETAIL_FREQUENCY_DROPDOWN_XPATH}  xpath=//button[@aria-label='Frequency']

@@ -35,6 +35,7 @@ Search and Create Business Unit
     Wait Until Element Is Visible   ${SELECT_ALL_US_BU_XPATH}     10s
     Click Element    ${SELECT_ALL_US_BU_XPATH}
     Sleep    10s
+    Wait Until Element Is Enabled    ${SEARCH_XPATH}        10s
     Input Text     ${SEARCH_XPATH}   ${BU_NAME}
     Press Key    ${SEARCH_XPATH}    \\13
     Sleep    5s
