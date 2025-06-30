@@ -1,25 +1,24 @@
-For XLSX Extension File:
-pip install -U robotframework-datadriver[XLS]
-
-
-For CSV Extension File:
-pip install robotframework-datadriver
-
-
 For Allure Reporting:
 pip install robotframework
 pip  install selenium
 pip install robotframework-seleniumlibrary
 pip install allure-robotframework
 
+For XLSX Extension File:
+pip install -U robotframework-datadriver[XLS]
+
+For CSV Extension File:
+pip install robotframework-datadriver
 
 Generate the Allure Report:
 allure generate ./allure-results -o ./allure-report --clean
 
+ Open the Allure Report in a browser:
+ allure open ./allure-report
 
 
-Open the Allure Report in a browser:
-allure open ./allure-report
+
+
 
 
 Commands:
