@@ -2,6 +2,8 @@
 Library     SeleniumLibrary
 Resource    ../Marketing_Cycle_Folder/Marketing_Cycle.resource
 Resource    ../Contact_Business_Unit_Folder/Contact_Business_Unit.resource
+Library     ../Marketing_Cycle_Detail_Folder/scroll_keyword.py
+
 
 *** Variables ***
 # Create Marketing Cycle Detail XPath
@@ -38,7 +40,23 @@ Create Marketing Cycle Detail
     Click Element   ${MC_DETAIL_COUNTRY_OPTION_XPATH}
     Click Button    ${CONTACT_PRIORITY_DROPDOWN_XPATH}
     Click Element   ${CONTACT_BU_PRIORITY_OPTION_XPATH}
+#    ${modena}   Get WebElement        xpath=//span[contains(text(),"Last Modified By")]
+#    Execute JavaScript    arguments[0].scrollIntoView();    ${modena}
+#    ${elements}=    Get WebElements    xpath=//span[contains(text(),'Last Modified By')]
+#    ${element}=     Set Variable    ${elements[0]}
+#    Execute JavaScript    arguments[0].scrollIntoView();    ${element}
+#    Scroll Element Into View    xpath=//span[contains(text(),'Last Modified By')]
+    Log To Console    >>> Calling pop up scrolling
+#    Pop up Scrolling
+    Sleep    10s
+#    Execute Javascript      window.scrollBy(0,100);
+#    ${scroll_top}=    Execute JavaScript    return document.querySelector("[id^='content_']").scrollTop+= 200;
+    ${scroll_top}=    Execute JavaScript    document.querySelector("[id^='content_']").scrollBy(0, 100)
+    Log    Popup scrollTop: ${scroll_top}
+    Log To Console    >>> Returned from scrolling
+    Sleep    20s
     Set Focus To Element    ${MC_DETAIL_SPECIALTY_OPTION_XPATH}
+    Set Focus To Element    ${MC_DETAIL_MOVE_TO_BUTTON_XPATH}
     Click Element    ${MC_DETAIL_MOVE_TO_BUTTON_XPATH}
     Click Element    ${SAVE_BUTTON_XPATH}
 
