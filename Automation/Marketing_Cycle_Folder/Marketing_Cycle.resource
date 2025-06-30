@@ -8,7 +8,7 @@ ${NEW_MC_PAGE}  New Marketing Cycle
 ${MC_NAME_XPATH}     xpath=//input[@name='Name']
 ${MC_NAME}       US Marketing Cycle
 ${MC_START_DATE_XPATH}     xpath=//div[@data-target-selection-name='sfdc:RecordField.Marketing_Cycle__c.Start_Date__c']//input[@name='Start_Date__c']
-${START_DATE_OPTION}     2025-03-01
+${START_DATE_OPTION}     2025-06-30
 ${MC_END_DATE_XPATH}     xpath=//div[@data-target-selection-name="sfdc:RecordField.Marketing_Cycle__c.End_Date__c"]//input[@name='End_Date__c']
 ${END_DATE_OPTION}     2025-06-30
 ${MC_COUNTRY_DROPDOWN_XPATH}     xpath=//div[@data-target-selection-name="sfdc:RecordField.Marketing_Cycle__c.Country__c"]//button[@aria-label='Country']
@@ -26,7 +26,7 @@ ${SEARCH_MC_XPath}      xpath=//a[@title='${MC_NAME}']
 
 # Edit Marketing Cycle XPath
 ${EDIT_MC_BUTTON_XPATH}     xpath=//li[@data-target-selection-name='sfdc:StandardButton.Marketing_Cycle__c.Edit']//button[@name='Edit']
-${EDIT_MC_START_DATE_OPTION}     2025-03-03
+${EDIT_MC_START_DATE_OPTION}     2025-06-30
 
 # Delete Marketing Cycle XPath
 ${DELETE_MC_ACTION_BUTTON_XPATH}    xpath=//button[@class='slds-button slds-button_icon-border-filled fix-slds-button_icon-border-filled slds-button_last']

@@ -7,7 +7,7 @@ Create Marketing Cycle
     [Documentation]    Test has only tag 'requirement: 42'.
     [Tags]    smoke
     Search and Create Marketing Cycle
-    Log To Console    >>> Calling pop up scrolling
+#    Log To Console    >>> Calling pop up scrolling
 #    Pop up Scrolling
 #    Execute Javascript      window.scrollTo(0,1000);
 #    Execute JavaScript    window.scrollTo(0, document.body.scrollHeight);
@@ -22,4 +22,4 @@ Create Marketing Cycle
 #    Log To Console    Number of pixels moved: ${value}
 #
 #    Log To Console    >>> Returned from scrolling
-    Sleep    20s
+#    Sleep    20s

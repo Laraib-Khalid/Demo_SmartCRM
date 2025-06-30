@@ -51,9 +51,11 @@ Create Marketing Cycle Detail
     Sleep    10s
 #    Execute Javascript      window.scrollBy(0,100);
 #    ${scroll_top}=    Execute JavaScript    return document.querySelector("[id^='content_']").scrollTop+= 200;
-#     Scroll Element Into View    xpath=(//span[contains(text(),'Last Modified By')])[2]
-      Execute JavaScript    document.evaluate("(//span[contains(text(),'Last Modified By')])[2]", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue.scrollIntoView()
+#    ${scroll_top}=    Execute JavaScript    document.querySelector("[id^='content_']").scrollBy(0, 100)
 
+    ${scroll_top}=    Execute JavaScript    document.evaluate("//div[contains(text(),'Specialty')]", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue.scrollIntoView()
+#    ${scroll_top}=    Execute JavaScript    document.evaluate("(//span[contains(text(),'Last Modified By')])[2]", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue.scrollIntoView()
+    Log    Popup scrollTop: ${scroll_top}
     Log To Console    >>> Returned from scrolling
     Sleep    20s
     Set Focus To Element    ${MC_DETAIL_SPECIALTY_OPTION_XPATH}
