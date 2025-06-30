@@ -55,7 +55,7 @@ Create Marketing Cycle Detail
 
     ${scroll_top}=    Execute JavaScript    document.evaluate("//div[contains(text(),'Specialty')]", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue.scrollIntoView()
 #    ${scroll_top}=    Execute JavaScript    document.evaluate("(//span[contains(text(),'Last Modified By')])[2]", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue.scrollIntoView()
-    Log To Console     Popup scrollTop: ${scroll_top}
+#    Log To Console     Popup scrollTop: ${scroll_top}
     Log To Console    >>> Returned from scrolling
     Sleep    5s
     Set Focus To Element    ${MC_DETAIL_SPECIALTY_OPTION_XPATH}
