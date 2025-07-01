@@ -34,10 +34,10 @@ ${NEW_MEDICAL_MOBILE_PHONE_XPATH}  xpath=//input[@name='MobilePhone']
 ${NEW_MEDICAL_PHONE_XPATH}  xpath=//input[@name='Phone']
 #${NEW_MEDICAL_PHONE}    1234567890
 ${NEW_MEDICAL_SHIPPING_ADDRESS_DROPDOWN_XPATH}  xpath=(//input[normalize-space(@placeholder)='Search Address'])[1]
-#${NEW_MEDICAL_SHIPPING_ADDRESS_SEARCH_TEXT}   Soldotna, Alaska 99669, USA
-${NEW_MEDICAL_SHIPPING_ADDRESS_SEARCH_RESULT}  (//input[@placeholder='Search Address'])[1]//following::div[contains(@class, 'slds-dropdown')][1]
-#${NEW_MEDICAL_SHIPPING_ADDRESS_SEARCH_OPTION}  xpath=//*[contains(@data-item-id,'combobox-input-')][1]
-${NEW_MEDICAL_SHIPPING_ADDRESS_SEARCH_OPTION}       xpath=(//input[@placeholder='Search Address'])[1]//following::div[contains(@class, 'slds-dropdown')][1]//lightning-base-combobox-item[1]//span[2]
+${NEW_MEDICAL_SHIPPING_ADDRESS_SEARCH}  xpath=(//input[normalize-space(@placeholder)='Search Address'])[1]//following::div[@role="listbox"][1]
+${NEW_MEDICAL_SHIPPING_ADDRESS_SEARCH_OPTION}    xpath=(//input[normalize-space(@placeholder)='Search Address'])[1]//following::div[@role="listbox"][1]//lightning-base-combobox-item[1]
+
+
 ${NEW_MEDICAL_EMAIL_OPTIN_XPATH}  xpath=//input[@name='hasEmailOptIn__c']
 
 # Search Contact XPath

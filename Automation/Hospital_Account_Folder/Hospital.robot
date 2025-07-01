@@ -6,7 +6,7 @@ Test Template   Search and Create Hospital Account
 
 *** Keywords ***
 Create Hospital
-    [Arguments]     ${ACCOUNT_NAME}     ${BRICK_NAME}
+    [Arguments]     ${ACCOUNT_NAME}     ${BRICK_NAME}       ${BILLING_ADDRESS}
      Wait Until Element Is Visible    ${NEW_BUTTON_XPATH}    10s
     Click Element    ${NEW_BUTTON_XPATH}
     Wait Until Page Contains    New Account    10s
@@ -21,23 +21,26 @@ Create Hospital
     Click Element    ${NEW_HOSPITAL_ACCOUNT_CHANNEL_OPTION_XPATH}
     Click Button    ${COUNTRY_DROPDOWN_XPATH}
     Click Element    ${COUNTRY_OPTION_XPATH}
-    Scroll Element Into View    ${ACCOUNT_BRICK_DROPDOWN_XPATH}
+#    Scroll Element Into View    ${ACCOUNT_BRICK_DROPDOWN_XPATH}
+    Execute JavaScript    document.evaluate("//label[contains(text(),'Brick')]", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue.scrollIntoView()
+    Sleep    5s
     Input Text    ${ACCOUNT_BRICK_DROPDOWN_XPATH}   ${BRICK_NAME}
     Wait Until Element Is Visible    ${ACCOUNT_BRICK_DROPDOWN_OPTIONS_XPATH}    10s
     Click Element    ${ACCOUNT_BRICK_OPTION_XPATH}
     Sleep    5s
 #    Scroll Element Into View    ${ACCOUNT_BILLING_DROPDOWN_XPATH}
 ##    Click Element    xpath=//input[normalize-space(@placeholder)='Search Address']
-#    Input Text    ${ACCOUNT_BILLING_DROPDOWN_XPATH}    ${BILLING_ADDRESS}
-#    Sleep    10s
-#    Wait Until Element Is Visible    ${ACCOUNT_BILLING_SEARCH_RESULT}   10s
-##    Sleep    50s
-#    Click Element    ${ACCOUNT_BILLING_SEARCH_RESULT}
-#    Sleep    10s
+    Execute JavaScript    document.evaluate("//legend[contains(text(),'Billing Address')]", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue.scrollIntoView()
+    Input Text    ${ACCOUNT_BILLING_DROPDOWN_XPATH}    ${BILLING_ADDRESS}
+    Sleep    5s
+    Wait Until Element Is Visible    ${ACCOUNT_BILLING_SEARCH}    10s
+    Sleep    5s
+    Click Element    ${ACCOUNT_BILLING_SEARCH_RESULT}
+    Sleep    10s
     Click Button    ${SAVE_BUTTON_XPATH}
 
 Search and Create Hospital Account
-    [Arguments]     ${ACCOUNT_NAME}     ${BRICK_NAME}
+    [Arguments]     ${ACCOUNT_NAME}     ${BRICK_NAME}       ${BILLING_ADDRESS}
     Sleep    10s
     Click Button    ${APP_LAUNCHER_BUTTON}
     Wait Until Element Is Visible    ${SEARCH_APP}    10s
@@ -60,7 +63,7 @@ Search and Create Hospital Account
     ...    Click Element    ${SEARCH_HOSPITAL_NAME}
 
     ...    ELSE
-    ...    Create Hospital    ${ACCOUNT_NAME}     ${BRICK_NAME}
+    ...    Create Hospital    ${ACCOUNT_NAME}     ${BRICK_NAME}     ${BILLING_ADDRESS}
 
 
 *** Test Cases ***

@@ -55,11 +55,13 @@ Create Medical Contact
 #    Scroll Element Into View    ${NEW_MEDICAL_SHIPPING_ADDRESS_DROPDOWN_XPATH}
 #
 #    Mouse Down     ${NEW_MEDICAL_SHIPPING_ADDRESS_DROPDOWN_XPATH}
-#    Input Text    ${NEW_MEDICAL_SHIPPING_ADDRESS_DROPDOWN_XPATH}    ${MAILNG_ADDRESS}
-#    Sleep    10s
-#    Wait Until Element Is Visible    ${NEW_MEDICAL_SHIPPING_ADDRESS_SEARCH_RESULT}    10s
-#    Click Element    ${NEW_MEDICAL_SHIPPING_ADDRESS_SEARCH_RESULT}
-#    Sleep    10s
+    Execute JavaScript    document.evaluate("//legend[contains(text(),'Mailing Address')]", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue.scrollIntoView()
+    Input Text    ${NEW_MEDICAL_SHIPPING_ADDRESS_DROPDOWN_XPATH}    ${MAILNG_ADDRESS}
+    Sleep    5s
+    Wait Until Element Is Visible    ${NEW_MEDICAL_SHIPPING_ADDRESS_SEARCH}    10s
+    Sleep    5s
+    Click Element    ${NEW_MEDICAL_SHIPPING_ADDRESS_SEARCH_OPTION}
+    Sleep    10s
     Click Button    ${SAVE_BUTTON_XPATH}
 
 Search and Create Medical Contact
