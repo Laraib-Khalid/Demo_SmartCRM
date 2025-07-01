@@ -6,11 +6,11 @@ Resource    ../Contact_Folder/Medical_Contact.resource
 # Create Business Unit XPath
 ${NEW_BU_PAGE}  New Business Unit
 ${BU_NAME_XPATH}     xpath=//input[@name='Name']
-${BU_NAME}       US Business Unit
+${BU_NAME}       UAE Business Unit
 ${START_DATE_XPATH}     xpath=//input[@name='Start_Date__c']
 ${START_DATE_OPTION}     2025-03-01
 ${END_DATE_XPATH}     xpath=//input[@name='End_Date__c']
-${END_DATE_OPTION}     2025-06-30
+${END_DATE_OPTION}     2025-07-31
 
 # Search Business Unit XPath
 ${ENTER_BU_TEXT}    Business Unit

@@ -14,7 +14,7 @@ ${SEARCH_CONTACT_BUSINESS_UNIT_DROWNDOWN_XPATH}  xpath=//div[@data-target-select
 #${SEARCH_CONTACT_BUSINESS_UNIT_TEXT}  US-ENT & Surgery
 ${SEARCH_CONTACT_BUSINESS_UNIT_DROWNDOWN_OPTIONS_XPATH}     xpath=//div[@data-target-selection-name="sfdc:RecordField.Contact_Business_Unit__c.Business_Unit__c"]//lightning-base-combobox-item[@class='slds-media slds-listbox__option slds-media_center slds-listbox__option_entity' and @role='option']
 ${SEARCH_CONTACT_BUSINESS_UNIT_OPTION_XPATH}      xpath=(//div[@data-target-selection-name="sfdc:RecordField.Contact_Business_Unit__c.Business_Unit__c"]//lightning-base-combobox-item[@class='slds-media slds-listbox__option slds-media_center slds-listbox__option_entity' and @role='option'])[2]
-${CONTACT_BU_SPECIALTY_OPTION_XPATH}    xpath=//lightning-base-combobox-item[@role='option' and @data-value='Gastroenterology']
+${CONTACT_BU_SPECIALTY_OPTION_XPATH}    xpath=//lightning-base-combobox-item[@role='option' and @data-value='ENT']
 
 ${CONTACT_BU_PRIORITY_OPTION_XPATH}    xpath=//lightning-base-combobox-item[@role='option' and @data-value='B']
 

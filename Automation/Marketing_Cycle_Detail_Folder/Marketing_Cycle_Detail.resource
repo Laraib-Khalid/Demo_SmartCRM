@@ -40,23 +40,8 @@ Create Marketing Cycle Detail
     Click Element   ${MC_DETAIL_COUNTRY_OPTION_XPATH}
     Click Button    ${CONTACT_PRIORITY_DROPDOWN_XPATH}
     Click Element   ${CONTACT_BU_PRIORITY_OPTION_XPATH}
-#    ${modena}   Get WebElement        xpath=//span[contains(text(),"Last Modified By")]
-#    Execute JavaScript    arguments[0].scrollIntoView();    ${modena}
-#    ${elements}=    Get WebElements    xpath=//span[contains(text(),'Last Modified By')]
-#    ${element}=     Set Variable    ${elements[0]}
-#    Execute JavaScript    arguments[0].scrollIntoView();    ${element}
-#    Scroll Element Into View    xpath=//span[contains(text(),'Last Modified By')]
-    Log To Console    >>> Calling pop up scrolling
-#    Pop up Scrolling
     Sleep    5s
-#    Execute Javascript      window.scrollBy(0,100);
-#    ${scroll_top}=    Execute JavaScript    return document.querySelector("[id^='content_']").scrollTop+= 200;
-#    ${scroll_top}=    Execute JavaScript    document.querySelector("[id^='content_']").scrollBy(0, 100)
-
     Execute JavaScript    document.evaluate("//div[contains(text(),'Specialty')]", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue.scrollIntoView()
-#    ${scroll_top}=    Execute JavaScript    document.evaluate("(//span[contains(text(),'Last Modified By')])[2]", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue.scrollIntoView()
-#    Log To Console     Popup scrollTop: ${scroll_top}
-    Log To Console    >>> Returned from scrolling
     Sleep    5s
     Set Focus To Element    ${MC_DETAIL_SPECIALTY_OPTION_XPATH}
     Set Focus To Element    ${MC_DETAIL_MOVE_TO_BUTTON_XPATH}
