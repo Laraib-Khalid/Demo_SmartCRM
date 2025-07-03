@@ -24,7 +24,7 @@ ${MC_DETAIL_MOVE_TO_BUTTON_XPATH}     xpath=//button[@title='Move to Chosen']//l
 *** Keywords ***
 Create Marketing Cycle Detail
     Sleep    10s
-    Execute JavaScript    window.scrollBy(0, 400);
+    Execute JavaScript    window.scrollBy(0, 500);
     Wait Until Element Is Visible    ${MC_DETAIL_NEW_BUTTON_XPATH}    10s
     Click Element    ${MC_DETAIL_NEW_BUTTON_XPATH}
     Sleep    10s

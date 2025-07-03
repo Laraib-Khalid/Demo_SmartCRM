@@ -6,7 +6,7 @@ Resource    ../Business_Unit_Folder/Business_Unit.resource
 # Create Marketing Cycle XPath
 ${NEW_MC_PAGE}  New Marketing Cycle
 ${MC_NAME_XPATH}     xpath=//input[@name='Name']
-${MC_NAME}       UAE Marketing Cycle
+${MC_NAME}       MC-AE-07-2025
 ${MC_START_DATE_XPATH}     xpath=//div[@data-target-selection-name='sfdc:RecordField.Marketing_Cycle__c.Start_Date__c']//input[@name='Start_Date__c']
 ${START_DATE_OPTION}     2025-06-30
 ${MC_END_DATE_XPATH}     xpath=//div[@data-target-selection-name="sfdc:RecordField.Marketing_Cycle__c.End_Date__c"]//input[@name='End_Date__c']
