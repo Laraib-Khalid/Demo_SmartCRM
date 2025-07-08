@@ -6,4 +6,4 @@ Resource    Marketing_Cycle_Detail.resource
 Create Marketing Cycle Detail
     [Documentation]    Test has only tag 'requirement: 42'.
     [Tags]    smoke
-    Create Marketing Cycle Detail
+    Search and Create Marketing Cycle Detail
