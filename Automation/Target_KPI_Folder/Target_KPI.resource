@@ -45,10 +45,8 @@ Create Target KPI
          ${visible}=    Run Keyword And Return Status    Element Should Be Visible   xpath=//span[@title='Target KPI']
         Exit For Loop If    ${visible}
         Execute JavaScript    window.scrollBy(0, 400);
+        Sleep    3s
     END
-#    Sleep    5s
-#    Wait Until Element Is Visible    ${TARGET_KPI_NEW_BUTTON_XPATH}    10s
-#    Sleep    5s
     ${target_kpi_rows}=    Get Element Count    xpath=//table[@aria-label="Target KPI"]//tbody//tr
     Log To Console    Row elements: ${target_kpi_rows}
 
@@ -63,10 +61,10 @@ Create Target KPI
         ${is_year_match}=     Run Keyword And Return Status    Should Be Equal    ${year_text}    ${TARGET_KPI_YEAR_NAME}
 
         ${match_found}=    Evaluate    ${is_bu_match} and ${is_month_match} and ${is_year_match}
-            Exit For Loop If    ${match_found}
-        END
+        Exit For Loop If    ${match_found}
+    END
 
-        IF    not ${match_found}
+    IF    not ${match_found}
             Wait Until Element Is Visible    ${TARGET_KPI_NEW_BUTTON_XPATH}    10s
             Click Element    ${TARGET_KPI_NEW_BUTTON_XPATH}
             Wait Until Page Contains    ${TARGET_KPI_NEW_PAGE_XPATH}    10s
@@ -89,9 +87,9 @@ Create Target KPI
             Click Element   ${YEAR_OPTION_XPATH}
             Click Element    ${SAVE_BUTTON_XPATH}
 
-        ELSE
+    ELSE
             Log    Matching Target KPI already exists. Skipping creation.
-        END
+    END
 
 
 

@@ -29,6 +29,11 @@ Search and Create Business Unit
 #    Sleep    10s
     Wait Until Element Is Visible    ${RESULT_BU_TEXT}    10s
     Click Element    ${RESULT_BU_TEXT}
+#    Sleep    5s
+#    Click Element   //span[text()='Contacts']
+#    Sleep    3s
+#    Click Element    //span[text()='Business Unit']
+    Reload Page
     Wait Until Element Is Visible   ${BU_PAGE_HEADING}     10s
     Sleep    5s
     Click Element   ${FILTER_BU_XPATH}
