@@ -4,7 +4,8 @@ Resource    ../Marketing_Cycle_Detail_Folder/Marketing_Cycle_Detail.resource
 
 *** Variables ***
 # Create Marketing Cycle Detail XPath
-${MC_RELATED_TAB}  xpath=(//li[@data-target-selection-name="relatedListsTabTab"]//a[@data-label="Related"])[2]
+#${MC_RELATED_TAB}  xpath=(//li[@data-target-selection-name="relatedListsTabTab"]//a[@data-label="Related"])[2]
+${MC_RELATED_TAB}  xpath=//records-entity-label[text()='Marketing Cycle']//following::li[@data-target-selection-name="relatedListsTabTab"]//a[@data-label="Related"]
 #${MC_RELATED_TAB}  xpath=//li[@data-target-selection-name="relatedListsTabTab"]//a[@data-label="Related"]
 ${TARGET_KPI_NEW_BUTTON_XPATH}   xpath=//li[@data-target-selection-name='sfdc:StandardButton.Target_KPI__c.New']//button[contains(text(),'New')]
 ${TARGET_KPI_NEW_PAGE_XPATH}   New Target KPI

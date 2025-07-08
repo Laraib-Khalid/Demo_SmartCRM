@@ -62,8 +62,8 @@ Create Contact Business Unit
         Log To Console   Index is: ${index}
         ${visible}=    Run Keyword And Return Status    Element Should Be Visible   ${CONTACT_BUSINESS_UNIT_NEW_BUTTON}
         Exit For Loop If    ${visible}
-        Execute JavaScript    window.scrollBy(0, 400);
-        Sleep    3s
+        Execute JavaScript    window.scrollBy(0, 200);
+        Sleep    5s
     END
     ${contact_bu_rows}=    Get Element Count    xpath=//table[@aria-label="Contact Business Unit"]//tbody//tr
     Log To Console    Row elements: ${contact_bu_rows}
