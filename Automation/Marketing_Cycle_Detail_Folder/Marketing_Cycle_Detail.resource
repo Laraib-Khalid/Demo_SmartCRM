@@ -29,7 +29,7 @@ Search and Create Marketing Cycle Detail
         Log To Console   Index is: ${index}
          ${visible}=    Run Keyword And Return Status    Element Should Be Visible   ${MC_DETAIL_NEW_BUTTON_XPATH}
         Exit For Loop If    ${visible}
-        Execute JavaScript    window.scrollBy(0, 400);
+        Execute JavaScript    window.scrollBy(0, 500);
         Sleep    3s
     END
     Sleep    3s
