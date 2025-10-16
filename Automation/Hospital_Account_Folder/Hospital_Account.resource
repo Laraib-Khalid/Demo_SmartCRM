@@ -19,3 +19,4 @@ ${ACCOUNT_BILLING_SEARCH_RESULT}  xpath=(//input[normalize-space(@placeholder)='
 #   Hospital Account XPath
 ${ACCOUNT_TAB_XPATH}     xpath=//a[@title='Accounts']
 #${HOSPITAL_NAME_ID}    xpath=(//span[@class='slds-grid slds-grid_align-spread'])[2]//a
+${SELECT_ALL_AE_ACCOUNT_XPATH}     xpath=//span[@title='AE-Clinic/Hospital']

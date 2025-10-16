@@ -50,6 +50,11 @@ Search and Create Hospital Account
     Click Element    ${RESULT_ACCOUNT_TEXT}
     Wait Until Element Is Visible   ${ACCOUNT_PAGE_HEADING}     10s
     Sleep    5s
+
+    Click Element   ${FILTER_BRICK_XPATH}
+    Wait Until Element Is Visible   ${SELECT_ALL_AE_ACCOUNT_XPATH}     10s
+    Click Element    ${SELECT_ALL_AE_ACCOUNT_XPATH}
+    Sleep    5s
 #    Clear Element Text  ${SEARCH_ACCOUNT_XPATH}
     Input Text   ${SEARCH_XPATH}    ${ACCOUNT_NAME}
     Sleep    10s

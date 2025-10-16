@@ -25,6 +25,8 @@ ${APP_LAUNCHER_BUTTON}      xpath=//button[@title='App Launcher']
 ${SEARCH_APP}       xpath=//input[contains(@class,'slds-input') and contains(@placeholder,'Search apps and items')]
 ${ENTER_ACCOUNT_TEXT}     Accounts
 ${RESULT_ACCOUNT_TEXT}     xpath=//p[contains(.,'Accounts')]
+${FILTER_BRICK_XPATH}     xpath=//button[@title='Select a List View: Accounts']
+${SELECT_ALL_AE_BRICK_XPATH}     xpath=//span[@title='AE-Bricks']
 ${ACCOUNT_PAGE_HEADING}     xpath=//h1[@class='slds-var-p-right_x-small'][contains(.,'Accounts')]
 ${SEARCH_XPATH}    xpath=//input[@placeholder='Search this list...']
 #${SEARCH_BRICK_NAME}       Test

@@ -38,6 +38,12 @@ Search and Create Brick Account
     Wait Until Element Is Visible    ${RESULT_ACCOUNT_TEXT}    10s
     Click Element    ${RESULT_ACCOUNT_TEXT}
     Wait Until Element Is Visible   ${ACCOUNT_PAGE_HEADING}     10s
+    Sleep    5s
+    Click Element   ${FILTER_BRICK_XPATH}
+    Wait Until Element Is Visible   ${SELECT_ALL_AE_BRICK_XPATH}     10s
+    Click Element    ${SELECT_ALL_AE_BRICK_XPATH}
+    Sleep    5s
+
     Clear Element Text    ${SEARCH_XPATH}
     Sleep    10s
     Input Text     ${SEARCH_XPATH}   ${BRICK_NAME}

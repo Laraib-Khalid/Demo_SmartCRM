@@ -46,6 +46,6 @@ ${ENTER_CONTACT_TEXT}   Contacts
 ${RESULT_CONTACT_TEXT}     xpath=//p[contains(.,'Contacts')]
 ${CONTACT_PAGE_HEADING}     xpath=//h1[@class='slds-var-p-right_x-small'][contains(.,'Contacts')]
 ${FILTER_CONTACT_XPATH}     xpath=//button[@title='Select a List View: Contacts']
-${SELECT_ALL_US_CONTACT_XPATH}     xpath=//span[@title='AE - All Contacts']
+${SELECT_ALL_AE_CONTACT_XPATH}     xpath=//span[@title='AE - All Contacts']
 ${SEARCH_CONTACT_XPATH}    xpath=//input[@placeholder='Search this list...']
  # Replace with the actual locator of the "medical contact name" element
