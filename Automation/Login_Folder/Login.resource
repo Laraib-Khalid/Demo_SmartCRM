@@ -14,9 +14,6 @@ ${CHECKBOX_XPATH}       xpath=//input[@id="rememberUn"]
 ${CRM_TEXT_VISIBLE}     xpath=//div[contains(@class,'slds-no-print oneAppNavContainer')]//child::span[@title='CRM']
 *** Keywords ***
 Open My Browser
-    Open Browser    https://raptorsconsulting--qasmartcrm.sandbox.lightning.force.com/      Chrome
+    Open Browser    https://raptorsconsulting--qasmartcrm.sandbox.lightning.force.com/      Chrome      options=add_experimental_option("detach", True)
 #    Open Browser    https://test.salesforce.com/    Edge
     Maximize Browser Window
-
-
-
