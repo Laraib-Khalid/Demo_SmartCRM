@@ -12,7 +12,7 @@ ${START_DATE_OPTION}     2025-10-01
 ${MC_END_DATE_XPATH}     xpath=//div[@data-target-selection-name="sfdc:RecordField.Marketing_Cycle__c.End_Date__c"]//input[@name='End_Date__c']
 ${END_DATE_OPTION}     2025-10-31
 ${MC_COUNTRY_DROPDOWN_XPATH}     xpath=//div[@data-target-selection-name="sfdc:RecordField.Marketing_Cycle__c.Country__c"]//button[@aria-label='Country']
-${MC_COUNTRY_OPTION_XPATH}     xpath=//div[@data-target-selection-name="sfdc:RecordField.Marketing_Cycle__c.Country__c"]//lightning-base-combobox-item[@role='option' and @data-value='United Arab Emirates']
+${MC_COUNTRY_OPTION_XPATH}     xpath=//div[@data-target-selection-name="sfdc:RecordField.Marketing_Cycle__c.Country__c"]//lightning-base-combobox-item[@role='option' and @data-value='${COUNTRY_NAME}']
 
 # Search Marketing Cycle XPath
 ${ENTER_MC_TEXT}    Marketing Cycle
@@ -24,13 +24,13 @@ ${SELECT_ALL_US_MC_XPATH}     xpath=//span[@title='All']
 #${SELECT_ALL_US_MC_XPATH}     xpath=//a[contains(.,'US - Marketing Cycle')]
 ${SEARCH_MC_XPath}      xpath=//a[@title='${MC_NAME}']
 
-# Edit Marketing Cycle XPath
-${EDIT_MC_BUTTON_XPATH}     xpath=//li[@data-target-selection-name='sfdc:StandardButton.Marketing_Cycle__c.Edit']//button[@name='Edit']
-${EDIT_MC_START_DATE_OPTION}     2025-06-30
-
-# Delete Marketing Cycle XPath
-${DELETE_MC_ACTION_BUTTON_XPATH}    xpath=//button[@class='slds-button slds-button_icon-border-filled fix-slds-button_icon-border-filled slds-button_last']
-${DELETE_MC_BUTTON_XPATH}     xpath=//a[contains(.,'Delete')]
+## Edit Marketing Cycle XPath
+#${EDIT_MC_BUTTON_XPATH}     xpath=//li[@data-target-selection-name='sfdc:StandardButton.Marketing_Cycle__c.Edit']//button[@name='Edit']
+#${EDIT_MC_START_DATE_OPTION}     2025-06-30
+#
+## Delete Marketing Cycle XPath
+#${DELETE_MC_ACTION_BUTTON_XPATH}    xpath=//button[@class='slds-button slds-button_icon-border-filled fix-slds-button_icon-border-filled slds-button_last']
+#${DELETE_MC_BUTTON_XPATH}     xpath=//a[contains(.,'Delete')]
 
 
 *** Keywords ***

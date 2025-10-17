@@ -10,7 +10,7 @@ ${BU_NAME}       AE-ENT & Gastro
 ${START_DATE_XPATH}     xpath=//input[@name='Start_Date__c']
 ${START_DATE_OPTION}     2025-03-01
 ${END_DATE_XPATH}     xpath=//input[@name='End_Date__c']
-${END_DATE_OPTION}     2025-07-31
+${END_DATE_OPTION}     2025-10-31
 
 # Search Business Unit XPath
 ${ENTER_BU_TEXT}    Business Unit
