@@ -19,7 +19,7 @@ ${CONTACT_BU_SPECIALTY_NAME}        ENT
 ${CONTACT_BU_SPECIALTY_OPTION_XPATH}    xpath=//lightning-base-combobox-item[@role='option' and @data-value='${CONTACT_BU_SPECIALTY_NAME}']
 ${CONTACT_BU_PRIORITY_NAME}     B
 ${CONTACT_BU_PRIORITY_OPTION_XPATH}    xpath=//lightning-base-combobox-item[@role='option' and @data-value='${CONTACT_BU_PRIORITY_NAME}']
-
+${CONTACT_NAME}    Marguerite McIntosh
 
 
 *** Keywords ***
@@ -34,13 +34,13 @@ Click on Contact Related Tab
     Wait Until Element Is Visible   ${CONTACT_PAGE_HEADING}     10s
     Sleep    5s
     Click Element   ${FILTER_CONTACT_XPATH}
-    Wait Until Element Is Visible   ${SELECT_ALL_US_CONTACT_XPATH}     10s
-    Click Element    ${SELECT_ALL_US_CONTACT_XPATH}
+    Wait Until Element Is Visible   ${SELECT_ALL_AE_CONTACT_XPATH}     10s
+    Click Element    ${SELECT_ALL_AE_CONTACT_XPATH}
     Sleep    5s
-    Input Text     ${SEARCH_XPATH}   Marguerite McIntosh
+    Input Text     ${SEARCH_XPATH}   ${CONTACT_NAME}
     Press Key    ${SEARCH_XPATH}    \\13
     Sleep    5s
-    ${SEARCH_CONTACT}   Set Variable    xpath=//a[@title='Marguerite McIntosh']
+    ${SEARCH_CONTACT}   Set Variable    xpath=//a[@title='${CONTACT_NAME}']
 #    ${contact_exists}=    Run Keyword And Return Status    Element Should Be Visible    ${SEARCH_CONTACT}
 #
 #
