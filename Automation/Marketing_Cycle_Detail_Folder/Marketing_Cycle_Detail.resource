@@ -36,7 +36,7 @@ Search and Create Marketing Cycle Detail
     Wait Until Page Contains Element    xpath=//table[@aria-label="Marketing Cycle Detail"]    20s
     ${rows}=    Get Element Count    xpath=//table[@aria-label="Marketing Cycle Detail"]//tbody//tr
     Log To Console    Row elements: ${rows}
-
+    ${match_found}    Set Variable    False
     ${expected_bu}=         Set Variable    ${BU_NAME}
     ${expected_specialty}=  Set Variable    ${MC_DETAIL_SPECIALTY_NAME}
     ${expected_priority}=   Set Variable    ${CONTACT_BU_PRIORITY_NAME}

@@ -50,7 +50,7 @@ Create Target KPI
     END
     ${target_kpi_rows}=    Get Element Count    xpath=//table[@aria-label="Target KPI"]//tbody//tr
     Log To Console    Row elements: ${target_kpi_rows}
-
+    ${match_found}    Set Variable    False
     FOR    ${index}    IN RANGE    1    ${target_kpi_rows + 1}
         ${row_text}=    Get Text    //table[@aria-label="Target KPI"]//tbody//tr[${index}]
         Log To Console    Row: ${row_text}

@@ -67,7 +67,7 @@ Create Contact Business Unit
     END
     ${contact_bu_rows}=    Get Element Count    xpath=//table[@aria-label="Contact Business Unit"]//tbody//tr
     Log To Console    Row elements: ${contact_bu_rows}
-
+    ${match_found}    Set Variable    False
     FOR    ${index}    IN RANGE    1    ${contact_bu_rows + 1}
         ${contact_bu_row_index_xpath}      Set Variable     xpath=//table[@aria-label="Contact Business Unit"]//tbody//tr[${index}]
         ${row_text}=    Get Text    ${contact_bu_row_index_xpath}

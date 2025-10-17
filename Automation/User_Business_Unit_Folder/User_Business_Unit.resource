@@ -37,10 +37,10 @@ Create User Business Unit
         Execute JavaScript    window.scrollBy(0, 400);
     END
     Sleep    5s
-    
 #    Checkbox Should Be Selected    //input[@type='checkbox' and @name='Active__c']
     ${user_bu_rows}=    Get Element Count    xpath=//table[@aria-label="User Business Unit"]//tbody//tr
     Log To Console    Row elements: ${user_bu_rows}
+    ${match_found}    Set Variable    False
     FOR    ${index}    IN RANGE    1    ${user_bu_rows + 1}
         ${row_text}=    Get Text    //table[@aria-label="User Business Unit"]//tbody//tr[${index}]
         Log To Console    Row: ${row_text}
@@ -52,25 +52,25 @@ Create User Business Unit
         ${is_country_match}=     Run Keyword And Return Status    Should Be Equal    ${country_text}    ${COUNTRY_NAME}
         ${match_found}=    Evaluate    ${is_user_match} and ${is_checked} and ${is_country_match}
             Exit For Loop If    ${match_found}
-        END
+    END
 
-        IF    not ${match_found}
-            Wait Until Element Is Visible    ${USER_BU_NEW_BUTTON_XPATH}    10s
-            Click Element    ${USER_BU_NEW_BUTTON_XPATH}
-            Sleep    5s
-            Input Text     ${SEARCH_USER_DROPDOWN_XPATH}   ${SEARCH_USER_TEXT}
-            Wait Until Element Is Visible    ${SEARCH_USER_DROPDOWN_OPTIONS_XPATH}  10s
-            Click Element    ${SEARCH_USER_OPTION_XPATH}
-            Click Button    ${COUNTRY_DROPDOWN_XPATH}
-            Click Element   ${COUNTRY_OPTION_XPATH}
-            Select Checkbox    ${USER_BU_ACTIVE_CHECKBOX_XPATH}
-            Input Text      ${SEARCH_BUSINESS_UNIT_DROWNDOWN_XPATH}   ${BU_NAME}
-            ${USER_BU_XPATH_OPTION}  Set Variable    xpath=//lightning-base-combobox-formatted-text[@title='${BU_NAME}']
-            Wait Until Element Is Visible  ${USER_BU_XPATH_OPTION}    10s
-            Click Element   ${USER_BU_XPATH_OPTION}
-            Input Text    ${START_DATE_XPATH}    ${USER_BU_START_DATE_OPTION}
+    IF    not ${match_found}
+        Wait Until Element Is Visible    ${USER_BU_NEW_BUTTON_XPATH}    10s
+        Click Element    ${USER_BU_NEW_BUTTON_XPATH}
+        Sleep    5s
+        Input Text     ${SEARCH_USER_DROPDOWN_XPATH}   ${SEARCH_USER_TEXT}
+        Wait Until Element Is Visible    ${SEARCH_USER_DROPDOWN_OPTIONS_XPATH}  10s
+        Click Element    ${SEARCH_USER_OPTION_XPATH}
+        Click Button    ${COUNTRY_DROPDOWN_XPATH}
+        Click Element   ${COUNTRY_OPTION_XPATH}
+        Select Checkbox    ${USER_BU_ACTIVE_CHECKBOX_XPATH}
+        Input Text      ${SEARCH_BUSINESS_UNIT_DROWNDOWN_XPATH}   ${BU_NAME}
+        ${USER_BU_XPATH_OPTION}  Set Variable    xpath=//lightning-base-combobox-formatted-text[@title='${BU_NAME}']
+        Wait Until Element Is Visible  ${USER_BU_XPATH_OPTION}    10s
+        Click Element   ${USER_BU_XPATH_OPTION}
+        Input Text    ${START_DATE_XPATH}    ${USER_BU_START_DATE_OPTION}
         #    Input Text    ${END_DATE_XPATH}      ${USER_BU_END_DATE_OPTION}
-            Click Button    ${CREATE_BUTTON_XPATH}
-        ELSE
-            Log    User Business Unit already exists. Skipping creation.
-        END
+        Click Button    ${CREATE_BUTTON_XPATH}
+    ELSE
+        Log    User Business Unit already exists. Skipping creation.
+    END
