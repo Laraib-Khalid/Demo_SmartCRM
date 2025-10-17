@@ -18,9 +18,9 @@ ${LIMIT_PER_CALL_XPATH}   xpath=//input[@name='Limit_per_Call__c']
 ${LIMIT_PER_YEAR_XPATH}   xpath=//input[@name='Limit_Per_Year__c']
 ${TARGET_FREQUENCY_XPATH}   xpath=//input[@name='Target_Frequency__c']
 ${TARGET_KPI_COUNTRY_DROPDOWN_XPATH}     xpath=//div[@data-target-selection-name="sfdc:RecordField.Target_KPI__c.Country__c"]//button[@aria-label='Country']
-${TARGET_KPI_COUNTRY_OPTION_XPATH}     xpath=//div[@data-target-selection-name="sfdc:RecordField.Target_KPI__c.Country__c"]//lightning-base-combobox-item[@role='option' and @data-value='United Arab Emirates']
+${TARGET_KPI_COUNTRY_OPTION_XPATH}     xpath=//div[@data-target-selection-name="sfdc:RecordField.Target_KPI__c.Country__c"]//lightning-base-combobox-item[@role='option' and @data-value='${COUNTRY_NAME}']
 ${MONTH_DROPDOWN_XPATH}     xpath=//button[@aria-label='Month']
-${TARGET_KPI_MONTH_NAME}     July
+${TARGET_KPI_MONTH_NAME}     October
 ${MONTH_OPTION_XPATH}     xpath=//lightning-base-combobox-item[@role='option' and @data-value='${TARGET_KPI_MONTH_NAME}']
 ${YEAR_DROPDOWN_XPATH}     xpath=//button[@aria-label='Year']
 ${TARGET_KPI_YEAR_NAME}         2025
@@ -43,7 +43,7 @@ Create Target KPI
 #     Execute Javascript  window.scrollBy(0, 400);
     FOR    ${index}    IN RANGE    5
         Log To Console   Index is: ${index}
-         ${visible}=    Run Keyword And Return Status    Element Should Be Visible   xpath=//span[@title='Target KPI']
+        ${visible}=    Run Keyword And Return Status    Element Should Be Visible   xpath=//span[@title='Target KPI']
         Exit For Loop If    ${visible}
         Execute JavaScript    window.scrollBy(0, 400);
         Sleep    3s
