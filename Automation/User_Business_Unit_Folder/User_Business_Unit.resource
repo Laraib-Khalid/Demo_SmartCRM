@@ -73,7 +73,9 @@ Create User Business Unit
 
             ${user_text}=    Get Text    xpath=(//article[@aria-label="User Business Unit"]//table//tbody//tr[${index}]/td[3]//span)[2]
 #            ${is_checked}=   Run Keyword And Return Status    Checkbox Should Be Selected    xpath=//article[@aria-label="User Business Unit"]//table//tbody//tr[${index}]/td[4]//input[@type='checkbox' and @name='Active__c']
-            ${is_checked}=   Run Keyword And Return Status    Checkbox Should Be Selected    xpath=//article[@aria-label="User Business Unit"]//table//tbody//tr[${index}]/td[4]//span[text()="Active"]
+#            ${is_checked}=   Run Keyword And Return Status    Checkbox Should Be Selected    xpath=//article[@aria-label="User Business Unit"]//table//tbody//tr[${index}]/td[4]//span[text()="Active"]
+#            ${is_checked}=   Run Keyword And Return Status    Element Attribute Value Should Be     xpath=//article[@aria-label="User Business Unit"]//table//tbody//tr[${index}]//lst-checkbox//lightning-input        checked    true
+            ${is_checked}=   Run Keyword And Return Status    Element Should Be Visible     xpath=//article[@aria-label="User Business Unit"]//table//tbody//tr[${index}]//lightning-icon[@icon-name="utility:check"]
             ${country_text}=    Get Text    xpath=//article[@aria-label="User Business Unit"]//table//tbody//tr[${index}]/td[5]
 
             ${is_user_match}=      Run Keyword And Return Status    Should Be Equal     ${user_text}      ${SEARCH_USER_TEXT}
