@@ -5,7 +5,8 @@ Resource    ../Business_Unit_Folder/Business_Unit.resource
 *** Variables ***
 #${CONTACT_RELATED_TAB}  xpath=(//a[@id='flexipage_tab__item' and @data-label='Related'])[2]
 ${CONTACT_RELATED_TAB}  xpath=//a[@id='flexipage_tab__item' and @data-label='Related']
-${CONTACT_BUSINESS_UNIT_NEW_BUTTON}  xpath=//article[@aria-label="Contact Business Unit"]//button[text()="New"]
+#${CONTACT_BUSINESS_UNIT_NEW_BUTTON}  xpath=//article[@aria-label="Contact Business Unit"]//button[text()="New"]
+${CONTACT_BUSINESS_UNIT_NEW_BUTTON}  xpath=//li[@data-target-selection-name="sfdc:StandardButton.Contact_Business_Unit__c.New"]//button[contains(.,'New')]
 #${CONTACT_BUSINESS_UNIT_NEW_BUTTON}  xpath=(//button[contains(.,'New')])[1]
 ${NEW_CONTACT_BUSINESS_UNIT_PAGE}  New Contact Business Unit
 ${CONTACT_BUSINESS_UNIT_COUNTRY_DROWNDOWN_XPATH}  xpath=//div[@data-target-selection-name="sfdc:RecordField.Contact_Business_Unit__c.Country__c"]//button[@aria-label='Country']
@@ -85,7 +86,7 @@ Create Contact Business Unit
         END
     END
     IF    not ${match_found}
-
+            Sleep    5s
             Wait Until Element Is Visible    ${CONTACT_BUSINESS_UNIT_NEW_BUTTON}    10s
             Click Element    ${CONTACT_BUSINESS_UNIT_NEW_BUTTON}
             Wait Until Page Contains    ${NEW_CONTACT_BUSINESS_UNIT_PAGE}   10s

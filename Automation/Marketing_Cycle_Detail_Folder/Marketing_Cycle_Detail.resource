@@ -50,9 +50,9 @@ Search and Create Marketing Cycle Detail
             ${bu_xpath}=          Set Variable    xpath=(//article[@aria-label="Marketing Cycle Detail"]//table//tbody//tr[${index}]/td[3]//span)[2]
             ${specialty_xpath}=   Set Variable    xpath=//article[@aria-label="Marketing Cycle Detail"]//table//tbody//tr[${index}]/td[4]
             ${priority_xpath}=    Set Variable    xpath=//article[@aria-label="Marketing Cycle Detail"]//table//tbody//tr[${index}]/td[5]
-            ${bu_text}=           Get Text    xpath=${bu_xpath}
-            ${specialty_text}=    Get Text    xpath=${specialty_xpath}
-            ${priority_text}=     Get Text    xpath=${priority_xpath}
+            ${bu_text}=           Get Text    ${bu_xpath}
+            ${specialty_text}=    Get Text    ${specialty_xpath}
+            ${priority_text}=     Get Text    ${priority_xpath}
             ${is_bu_match}=    Run Keyword And Return Status    Should Be Equal     ${bu_text}      ${expected_bu}
             ${is_specialty_match}=    Run Keyword And Return Status    Should Be Equal    ${specialty_text}    ${expected_specialty}
             ${is_priority_match}=     Run Keyword And Return Status    Should Be Equal    ${priority_text}    ${expected_priority}
