@@ -61,7 +61,7 @@ Create Contact Business Unit
 #    Execute JavaScript    document.evaluate("//article[@aria-label='Contact Business Unit']//button[text()='New']", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue.scrollIntoView({ behavior: 'smooth', block: 'center' });
     FOR    ${index}    IN RANGE    10
         Log To Console   Index is: ${index}
-        ${visible}=    Run Keyword And Return Status    Element Should Be Visible   xpath=//article[@aria-label="Contact Business Unit"]
+        ${visible}=    Run Keyword And Return Status    Element Should Be Visible   xpath=//article[@aria-label="Contact Business Unit"]//button[text()='New']
         Exit For Loop If    ${visible}
         Execute JavaScript    window.scrollBy(0, 200);
         Sleep    5s
