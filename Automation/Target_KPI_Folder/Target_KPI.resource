@@ -30,7 +30,7 @@ ${SCROLL_CREATED_BY_XPATH}    xpath=//div[@data-target-selection-name='sfdc:Reco
 ${TARGET_KPI_EDIT_ACTION_BUTTON_XPATH}  xpath=(//table[@aria-label="Target KPI"]//button[@class='slds-button slds-button_icon-border slds-button_icon-x-small'])[1]
 
 ${TARGET_KPI_DELETE_ACTION_BUTTON_XPATH}    xpath=(//table[@aria-label="Target KPI"]//a[@title='Show 2 more actions'])[1]
-
+${TARGET_KPI_TABLE_XPATH}     //article[@aria-label="Target KPI"]//table//tbody//tr
 *** Keywords ***
 Click on Marketing Cycle Related Tab
     Sleep    10s
@@ -48,21 +48,26 @@ Create Target KPI
         Execute JavaScript    window.scrollBy(0, 400);
         Sleep    3s
     END
-    ${target_kpi_rows}=    Get Element Count    xpath=//table[@aria-label="Target KPI"]//tbody//tr
+    ${target_kpi_rows}=    Get Element Count    xpath=${TARGET_KPI_TABLE_XPATH}
     Log To Console    Row elements: ${target_kpi_rows}
-    ${match_found}    Set Variable    False
-    FOR    ${index}    IN RANGE    1    ${target_kpi_rows + 1}
-        ${row_text}=    Get Text    //table[@aria-label="Target KPI"]//tbody//tr[${index}]
-        Log To Console    Row: ${row_text}
-        ${bu_text}=          Get Text    (//table[@aria-label="Target KPI"]//tbody//tr[${index}]/td[3]//span)[2]
-        ${month_text}=   Get Text    //table[@aria-label="Target KPI"]//tbody//tr[${index}]/td[4]
-        ${year_text}=    Get Text    //table[@aria-label="Target KPI"]//tbody//tr[${index}]/td[5]
-        ${is_bu_match}=    Run Keyword And Return Status    Should Be Equal     ${bu_text}      ${BU_NAME}
-        ${is_month_match}=    Run Keyword And Return Status    Should Be Equal    ${month_text}    ${TARGET_KPI_MONTH_NAME}
-        ${is_year_match}=     Run Keyword And Return Status    Should Be Equal    ${year_text}    ${TARGET_KPI_YEAR_NAME}
+    ${match_found}=    Set Variable    False
+    IF    ${target_kpi_rows} > 0
+        FOR    ${index}    IN RANGE    1    ${target_kpi_rows + 1}
 
-        ${match_found}=    Evaluate    ${is_bu_match} and ${is_month_match} and ${is_year_match}
-        Exit For Loop If    ${match_found}
+#            ${row_xpath}=    Set Variable    ${TARGET_KPI_TABLE_XPATH}[${index}]
+            ${row_text}=     Get Text    //article[@aria-label="Target KPI"]//table//tbody//tr[${index}]
+
+            Log To Console    Row: ${row_text}
+            ${bu_text}=          Get Text    xpath=(//article[@aria-label="Target KPI"]//table//tbody//tr[${index}]/td[3]//span)[2]
+            ${month_text}=   Get Text    xpath=//article[@aria-label="Target KPI"]//table//tbody//tr[${index}]/td[4]
+            ${year_text}=    Get Text    xpath=//article[@aria-label="Target KPI"]//table//tbody//tr[${index}]/td[5]
+            ${is_bu_match}=    Run Keyword And Return Status    Should Be Equal     ${bu_text}      ${BU_NAME}
+            ${is_month_match}=    Run Keyword And Return Status    Should Be Equal    ${month_text}    ${TARGET_KPI_MONTH_NAME}
+            ${is_year_match}=     Run Keyword And Return Status    Should Be Equal    ${year_text}    ${TARGET_KPI_YEAR_NAME}
+
+            ${match_found}=    Evaluate    ${is_bu_match} and ${is_month_match} and ${is_year_match}
+            Exit For Loop If    ${match_found}
+        END
     END
 
     IF    not ${match_found}

@@ -20,6 +20,7 @@ ${MC_DETAIL_FREQUENCY_DROPDOWN_XPATH}  xpath=//button[@aria-label='Frequency']
 ${MC_DETAIL_FREQUENCY_OPTION_XPATH}     xpath=//lightning-base-combobox-item[@data-value='2']
 ${MC_DETAIL_SPECIALTY_OPTION_XPATH}     xpath=//div[@data-value='${MC_DETAIL_SPECIALTY_NAME}']
 ${MC_DETAIL_MOVE_TO_BUTTON_XPATH}     xpath=//button[@title='Move to Chosen']//lightning-primitive-icon[@variant='bare']
+#${MC_DETAIL_TABLE_XPATH}     //article[@aria-label="Marketing Cycle Detail"]//table//tbody//tr
 
 *** Keywords ***
 Search and Create Marketing Cycle Detail
@@ -33,29 +34,32 @@ Search and Create Marketing Cycle Detail
         Sleep    3s
     END
     Sleep    3s
-    Wait Until Page Contains Element    xpath=//table[@aria-label="Marketing Cycle Detail"]    20s
-    ${rows}=    Get Element Count    xpath=//table[@aria-label="Marketing Cycle Detail"]//tbody//tr
+    Wait Until Page Contains Element    xpath=//article[@aria-label="Marketing Cycle Detail"]    20s
+    ${rows}=    Get Element Count    xpath=//article[@aria-label="Marketing Cycle Detail"]//table//tbody//tr
     Log To Console    Row elements: ${rows}
-    ${match_found}    Set Variable    False
+    ${match_found}=    Set Variable    False
     ${expected_bu}=         Set Variable    ${BU_NAME}
     ${expected_specialty}=  Set Variable    ${MC_DETAIL_SPECIALTY_NAME}
     ${expected_priority}=   Set Variable    ${CONTACT_BU_PRIORITY_NAME}
-    FOR    ${index}    IN RANGE    1    ${rows + 1}
-        Log To Console    Rows + 1 : ${rows + 1}
-        ${row_text}=    Get Text    //table[@aria-label="Marketing Cycle Detail"]//tbody//tr[${index}]
-        Log To Console    Row: ${row_text}
-        ${bu_xpath}=          Set Variable    (//table[@aria-label="Marketing Cycle Detail"]//tbody//tr[1]/td[3]//span)[2]
-        ${specialty_xpath}=   Set Variable    //table[@aria-label="Marketing Cycle Detail"]//tbody//tr[${index}]/td[4]
-        ${priority_xpath}=    Set Variable    //table[@aria-label="Marketing Cycle Detail"]//tbody//tr[${index}]/td[5]
-        ${bu_text}=           Get Text    xpath=${bu_xpath}
-        ${specialty_text}=    Get Text    xpath=${specialty_xpath}
-        ${priority_text}=     Get Text    xpath=${priority_xpath}
-        ${is_bu_match}=    Run Keyword And Return Status    Should Be Equal     ${bu_text}      ${expected_bu}
-        ${is_specialty_match}=    Run Keyword And Return Status    Should Be Equal    ${specialty_text}    ${expected_specialty}
-        ${is_priority_match}=     Run Keyword And Return Status    Should Be Equal    ${priority_text}    ${expected_priority}
+    IF    ${rows} > 0
+        FOR    ${index}    IN RANGE    1    ${rows + 1}
+            Log To Console    Rows + 1 : ${rows + 1}
+#            ${MC_DETAIL_TABLE_ROW_XPATH}=    Set Variable    //article[@aria-label="Marketing Cycle Detail"]//table//tbody//tr[${index}]
+            ${row_text}=     Get Text    //article[@aria-label="Marketing Cycle Detail"]//table//tbody//tr[${index}]
+            Log To Console    Row: ${row_text}
+            ${bu_xpath}=          Set Variable    xpath=(//article[@aria-label="Marketing Cycle Detail"]//table//tbody//tr[${index}]/td[3]//span)[2]
+            ${specialty_xpath}=   Set Variable    xpath=//article[@aria-label="Marketing Cycle Detail"]//table//tbody//tr[${index}]/td[4]
+            ${priority_xpath}=    Set Variable    xpath=//article[@aria-label="Marketing Cycle Detail"]//table//tbody//tr[${index}]/td[5]
+            ${bu_text}=           Get Text    xpath=${bu_xpath}
+            ${specialty_text}=    Get Text    xpath=${specialty_xpath}
+            ${priority_text}=     Get Text    xpath=${priority_xpath}
+            ${is_bu_match}=    Run Keyword And Return Status    Should Be Equal     ${bu_text}      ${expected_bu}
+            ${is_specialty_match}=    Run Keyword And Return Status    Should Be Equal    ${specialty_text}    ${expected_specialty}
+            ${is_priority_match}=     Run Keyword And Return Status    Should Be Equal    ${priority_text}    ${expected_priority}
 
-        ${match_found}=    Evaluate   ${is_bu_match} and ${is_specialty_match} and ${is_priority_match}
-            Exit For Loop If    ${match_found}
+            ${match_found}=    Evaluate   ${is_bu_match} and ${is_specialty_match} and ${is_priority_match}
+                Exit For Loop If    ${match_found}
+        END
     END
 
     IF    not ${match_found}

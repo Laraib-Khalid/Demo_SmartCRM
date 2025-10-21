@@ -20,7 +20,7 @@ ${CONTACT_BU_SPECIALTY_OPTION_XPATH}    xpath=//lightning-base-combobox-item[@ro
 ${CONTACT_BU_PRIORITY_NAME}     B
 ${CONTACT_BU_PRIORITY_OPTION_XPATH}    xpath=//lightning-base-combobox-item[@role='option' and @data-value='${CONTACT_BU_PRIORITY_NAME}']
 ${CONTACT_NAME}    Marguerite McIntosh
-
+#${CONTACT_BU_TABLE_XPATH}        xpath=//article[@aria-label="Contact Business Unit"]//table//tbody//tr
 
 *** Keywords ***
 Click on Contact Related Tab
@@ -60,29 +60,30 @@ Create Contact Business Unit
 #    Execute JavaScript    document.evaluate("//article[@aria-label='Contact Business Unit']//button[text()='New']", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue.scrollIntoView({ behavior: 'smooth', block: 'center' });
     FOR    ${index}    IN RANGE    10
         Log To Console   Index is: ${index}
-        ${visible}=    Run Keyword And Return Status    Element Should Be Visible   ${CONTACT_BUSINESS_UNIT_NEW_BUTTON}
+        ${visible}=    Run Keyword And Return Status    Element Should Be Visible   xpath=${CONTACT_BUSINESS_UNIT_NEW_BUTTON}
         Exit For Loop If    ${visible}
         Execute JavaScript    window.scrollBy(0, 200);
         Sleep    5s
     END
-    ${contact_bu_rows}=    Get Element Count    xpath=//table[@aria-label="Contact Business Unit"]//tbody//tr
+    ${contact_bu_rows}=    Get Element Count    xpath=//article[@aria-label="Contact Business Unit"]//table//tbody//tr
     Log To Console    Row elements: ${contact_bu_rows}
-    ${match_found}    Set Variable    False
-    FOR    ${index}    IN RANGE    1    ${contact_bu_rows + 1}
-        ${contact_bu_row_index_xpath}      Set Variable     xpath=//table[@aria-label="Contact Business Unit"]//tbody//tr[${index}]
-        ${row_text}=    Get Text    ${contact_bu_row_index_xpath}
-        Log To Console    Row: ${row_text}
-        ${specialty_text}=          Get Text    ${contact_bu_row_index_xpath}/td[3]
-        ${priority_text}=   Get Text    ${contact_bu_row_index_xpath}/td[4]
-        ${country_text}=    Get Text    ${contact_bu_row_index_xpath}/td[5]
-        ${is_specialty_match}=    Run Keyword And Return Status    Should Be Equal     ${specialty_text}      ${CONTACT_BU_SPECIALTY_NAME}
-        ${is_priority_match}=    Run Keyword And Return Status    Should Be Equal    ${priority_text}    ${CONTACT_BU_PRIORITY_NAME}
-        ${is_country_match}=     Run Keyword And Return Status    Should Be Equal    ${country_text}    ${COUNTRY_NAME}
+    ${match_found}=    Set Variable    False
+    IF    ${contact_bu_rows} > 0
+        FOR    ${index}    IN RANGE    1    ${contact_bu_rows + 1}
+#            ${contact_bu_row_index_xpath}=    Set Variable    xpath=//article[@aria-label="Contact Business Unit"]//table//tbody//tr[${index}]
+            ${row_text}=    Get Text    xpath=//article[@aria-label="Contact Business Unit"]//table//tbody//tr[${index}]
+            Log To Console    Row: ${row_text}
+            ${specialty_text}=          Get Text    xpath=//article[@aria-label="Contact Business Unit"]//table//tbody//tr[${index}]/td[3]
+            ${priority_text}=   Get Text    xpath=//article[@aria-label="Contact Business Unit"]//table//tbody//tr[${index}]/td[4]
+            ${country_text}=    Get Text    xpath=//article[@aria-label="Contact Business Unit"]//table//tbody//tr[${index}]/td[5]
+            ${is_specialty_match}=    Run Keyword And Return Status    Should Be Equal     ${specialty_text}      ${CONTACT_BU_SPECIALTY_NAME}
+            ${is_priority_match}=    Run Keyword And Return Status    Should Be Equal    ${priority_text}    ${CONTACT_BU_PRIORITY_NAME}
+            ${is_country_match}=     Run Keyword And Return Status    Should Be Equal    ${country_text}    ${COUNTRY_NAME}
 
-        ${match_found}=    Evaluate    ${is_specialty_match} and ${is_priority_match} and ${is_country_match}
-        Exit For Loop If    ${match_found}
+            ${match_found}=    Evaluate    ${is_specialty_match} and ${is_priority_match} and ${is_country_match}
+            Exit For Loop If    ${match_found}
+        END
     END
-
     IF    not ${match_found}
 
             Wait Until Element Is Visible    ${CONTACT_BUSINESS_UNIT_NEW_BUTTON}    10s
