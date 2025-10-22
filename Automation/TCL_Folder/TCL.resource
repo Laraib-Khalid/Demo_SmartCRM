@@ -14,6 +14,7 @@ ${CONTACT_PRIORITY_OPTION_XPATH}        xpath=//div[@data-target-selection-name=
 #${SEARCH_CONTACT_TCL_OPTION_XPATH}      xpath=(//lightning-base-combobox-item[@class='slds-media slds-listbox__option slds-media_center slds-listbox__option_entity' and @role='option'])[2]
 ${SEARCH_CONTACT_DROPDOWN_XPATH}    xpath=//input[@placeholder='Search Contacts...']
 ${TCL_SEARCH_CONTACT_DROPDOWN_OPTIONS_XPATH}   xpath=//div[@data-target-selection-name="sfdc:RecordField.Target_Customer_List__c.Customer__c"]//lightning-base-combobox-item[@class='slds-media slds-listbox__option slds-media_center slds-listbox__option_entity' and @role='option']
+${CONTACT_NAME}     Marguerite McIntosh
 ${TCL_SEARCH_CONTACT_OPTION_XPATH}     xpath=//div[@data-target-selection-name="sfdc:RecordField.Target_Customer_List__c.Customer__c"]//lightning-base-combobox-formatted-text[@title="${CONTACT_NAME}"]
 ${SEARCH_USER_DROPDOWN_XPATH}    xpath=//input[@placeholder='Search People...']
 ${SEARCH_USER_TEXT}     QA Team
