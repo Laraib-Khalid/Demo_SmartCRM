@@ -14,7 +14,8 @@ ${SEARCH_MC_DETAIL_BUSINESS_UNIT_DROWNDOWN_OPTIONS_XPATH}     xpath=//div[@data-
 ${SEARCH_MC_DETAIL_BUSINESS_UNIT_OPTION_XPATH}      xpath=(//div[@data-target-selection-name="sfdc:RecordField.MarketingCycleDetail__c.Business_Unit__c"]//lightning-base-combobox-item[@class='slds-media slds-listbox__option slds-media_center slds-listbox__option_entity' and @role='option'])[2]
 ${MC_DETAIL_COUNTRY_DROPDOWN_XPATH}     xpath=//div[@data-target-selection-name='sfdc:RecordField.MarketingCycleDetail__c.Country__c']//button[@aria-label='Country']
 ${MC_DETAIL_COUNTRY_OPTION_XPATH}     xpath=//div[@data-target-selection-name='sfdc:RecordField.MarketingCycleDetail__c.Country__c']//lightning-base-combobox-item[@role='option' and @data-value='United Arab Emirates']
-
+${MC_DETAIL_CONTACT_BU_PRIORITY_NAME}       B
+${MC_DETAIL_CONTACT_BU_PRIORITY_OPTION_XPATH}    xpath=//lightning-base-combobox-item[@role='option' and @data-value='${MC_DETAIL_CONTACT_BU_PRIORITY_NAME}']
 ${MC_DETAIL_SPECIALTY_NAME}     ENT
 ${MC_DETAIL_FREQUENCY_DROPDOWN_XPATH}  xpath=//button[@aria-label='Frequency']
 ${MC_DETAIL_FREQUENCY_OPTION_XPATH}     xpath=//lightning-base-combobox-item[@data-value='2']
@@ -40,7 +41,7 @@ Search and Create Marketing Cycle Detail
     ${match_found}=    Set Variable    False
     ${expected_bu}=         Set Variable    ${BU_NAME}
     ${expected_specialty}=  Set Variable    ${MC_DETAIL_SPECIALTY_NAME}
-    ${expected_priority}=   Set Variable    ${CONTACT_BU_PRIORITY_NAME}
+    ${expected_priority}=   Set Variable    ${MC_DETAIL_CONTACT_BU_PRIORITY_NAME}
     IF    ${rows} > 0
         FOR    ${index}    IN RANGE    1    ${rows + 1}
             Log To Console    Rows + 1 : ${rows + 1}
@@ -85,7 +86,7 @@ Create New Marketing Cycle Detail
     Click Element   ${MC_DETAIL_COUNTRY_OPTION_XPATH}
 
     Click Button    ${CONTACT_PRIORITY_DROPDOWN_XPATH}
-    Click Element   ${CONTACT_BU_PRIORITY_OPTION_XPATH}
+    Click Element   ${MC_DETAIL_CONTACT_BU_PRIORITY_OPTION_XPATH}
 
     Sleep    3s
     Execute JavaScript    document.evaluate("//div[contains(text(),'Specialty')]", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue.scrollIntoView()
