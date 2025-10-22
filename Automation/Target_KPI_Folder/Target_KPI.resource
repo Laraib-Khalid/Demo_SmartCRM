@@ -34,7 +34,7 @@ ${TARGET_KPI_TABLE_XPATH}     //article[@aria-label="Target KPI"]//table//tbody/
 *** Keywords ***
 Click on Marketing Cycle Related Tab
     Sleep    10s
-    Execute Javascript  window.scrollBy(0, -400);
+    Execute Javascript  window.scrollBy(0, -500);
     Wait Until Element Is Visible    ${MC_RELATED_TAB}    10s
     Click Element    ${MC_RELATED_TAB}
 

@@ -47,7 +47,7 @@ Create Contact TCL
         Log To Console   Index is: ${index}
         ${visible}=    Run Keyword And Return Status    Element Should Be Visible   xpath=//span[@title='Target Customer List']
         Exit For Loop If    ${visible}
-        Execute JavaScript    window.scrollBy(0, 300);
+        Execute JavaScript    window.scrollBy(0, -300);
         Sleep    3s
     END
 
