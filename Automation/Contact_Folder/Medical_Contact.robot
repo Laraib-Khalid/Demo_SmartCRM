@@ -76,7 +76,8 @@ Search and Create Medical Contact
     Wait Until Element Is Visible   ${CONTACT_PAGE_HEADING}     10s
     Sleep    5s
     Click Element   ${FILTER_CONTACT_XPATH}
-    Wait Until Element Is Visible   ${SELECT_ALL_AE_CONTACT_XPATH}     10s
+    Sleep    5s
+    Wait Until Element Is Visible   ${SELECT_ALL_AE_CONTACT_XPATH}     20s
     Click Element    ${SELECT_ALL_AE_CONTACT_XPATH}
     Sleep    5s
     Input Text     ${SEARCH_XPATH}   ${FIRST_NAME} ${LAST_NAME}
