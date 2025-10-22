@@ -4,7 +4,7 @@ Resource    ../Contact_Business_Unit_Folder/Contact_Business_Unit.resource
 Resource    ../Marketing_Cycle_Folder/Marketing_Cycle.resource
 
 *** Variables ***
-${CONTACT_TCL_NEW_BUTTON}       xpath=//li[@data-target-selection-name="sfdc:StandardButton.Target_Customer_List__c.New"]//button[text()="New")]
+${CONTACT_TCL_NEW_BUTTON}       xpath=//li[@data-target-selection-name="sfdc:StandardButton.Target_Customer_List__c.New"]//button[text()="New"]
 ${NEW_CONTACT_TCL_PAGE}  New Target Customer List
 ${CONTACT_PRIORITY_OPTION_XPATH}        xpath=//div[@data-target-selection-name="sfdc:RecordField.Target_Customer_List__c.Priority__c"]//span[@title="B"]
 #${SEARCH_CONTACT_TCL_DROWNDOWN_XPATH}  xpath=(//input[contains(@id,'combobox-input-')])[2]
@@ -41,11 +41,12 @@ Create Contact TCL
     Sleep    5s
 #    Click on Contact Related Tab
 #    Execute JavaScript    window.scrollBy(0, 500);
+    Execute JavaScript    window.scrollBy(0, -500);
     FOR    ${index}    IN RANGE    10
         Log To Console   Index is: ${index}
         ${visible}=    Run Keyword And Return Status    Element Should Be Visible   xpath=//span[@title='Target Customer List']
         Exit For Loop If    ${visible}
-        Execute JavaScript    window.scrollBy(0, -300);
+        Execute JavaScript    window.scrollBy(0, 300);
         Sleep    3s
     END
 

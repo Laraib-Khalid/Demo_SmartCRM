@@ -1,6 +1,6 @@
 *** Settings ***
 Library     SeleniumLibrary
-Resource    ../Automation/Business_Unit_Folder/Business_Unit.resource
+Resource    ../Business_Unit_Folder/Business_Unit.resource
 #Resource    ../Contact_Folder/Medical_Contact.robot
 *** Variables ***
 #${CONTACT_RELATED_TAB}  xpath=(//a[@id='flexipage_tab__item' and @data-label='Related'])[2]
