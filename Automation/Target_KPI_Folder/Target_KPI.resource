@@ -35,7 +35,8 @@ ${TARGET_KPI_TABLE_XPATH}     //article[@aria-label="Target KPI"]//table//tbody/
 Click on Marketing Cycle Related Tab
     Sleep    10s
     Execute Javascript  window.scrollBy(0, -500);
-    Wait Until Element Is Visible    ${MC_RELATED_TAB}    10s
+    Sleep    3s
+    Wait Until Element Is Visible    ${MC_RELATED_TAB}    20s
     Click Element    ${MC_RELATED_TAB}
 
 Create Target KPI

@@ -42,14 +42,10 @@ Create Contact TCL
     Sleep    5s
 #    Click on Contact Related Tab
 #    Execute JavaScript    window.scrollBy(0, 500);
-    Execute JavaScript    window.scrollBy(0, -500);
-    FOR    ${index}    IN RANGE    10
-        Log To Console   Index is: ${index}
-        ${visible}=    Run Keyword And Return Status    Element Should Be Visible   xpath=//span[@title='Target Customer List']
-        Exit For Loop If    ${visible}
-        Execute JavaScript    window.scrollBy(0, -300);
-        Sleep    3s
-    END
+#    Execute JavaScript    window.scrollBy(0, -500);
+    Execute JavaScript    document.evaluate("//span[@title='Target Customer List']", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue.scrollIntoView({behavior: "smooth", block: "center"});
+    Sleep    2s
+
 
     ${tcl_rows}=    Get Element Count    xpath=${TCL_TABLE_XPATH}
     Log To Console    Row elements: ${tcl_rows}
