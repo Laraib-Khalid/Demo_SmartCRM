@@ -34,10 +34,12 @@ ${TARGET_KPI_TABLE_XPATH}     //article[@aria-label="Target KPI"]//table//tbody/
 *** Keywords ***
 Click on Marketing Cycle Related Tab
     Sleep    10s
-    Execute Javascript  window.scrollBy(0, -500);
-    Sleep    3s
-    Wait Until Element Is Visible    ${MC_RELATED_TAB}    20s
-    Click Element    ${MC_RELATED_TAB}
+#    Execute Javascript  window.scrollBy(0, -500);
+#    Sleep    3s
+#    Wait Until Element Is Visible    ${MC_RELATED_TAB}    20s
+#
+#    Click Element    ${MC_RELATED_TAB}
+    Execute JavaScript    document.evaluate("//records-entity-label[text()='Marketing Cycle']//following::li[@data-target-selection-name='relatedListsTabTab']//a[@data-label='Related']", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue.click();
 
 Create Target KPI
     Sleep    10s

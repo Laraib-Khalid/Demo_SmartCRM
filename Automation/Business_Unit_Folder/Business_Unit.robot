@@ -44,9 +44,9 @@ Search and Create Business Unit
     Input Text     ${SEARCH_XPATH}   ${BU_NAME}
     Press Key    ${SEARCH_XPATH}    \\13
     Sleep    5s
-    ${SEARCH_BU_XPath}   Set Variable    xpath=//a[@title='${BU_NAME}']
+    ${SEARCH_BU_XPath}=   Set Variable    xpath=//a[@title='${BU_NAME}']
     ${BU_exists}=    Run Keyword And Return Status    Element Should Be Visible    ${SEARCH_BU_XPath}
-
+    Sleep    5s
 
     Run Keyword If    ${BU_exists}
     ...    Click Element    ${SEARCH_BU_XPath}

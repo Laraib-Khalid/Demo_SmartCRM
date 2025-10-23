@@ -29,7 +29,7 @@ Search and Create Marketing Cycle Detail
 #    Execute JavaScript    document.evaluate("//li[@data-target-selection-name='sfdc:StandardButton.MarketingCycleDetail__c.New']//button[text()='New']", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue.scrollIntoView({ behavior: 'smooth', block: 'center' });
     FOR    ${index}    IN RANGE    5
         Log To Console   Index is: ${index}
-         ${visible}=    Run Keyword And Return Status    Element Should Be Visible   xpath=//article[@aria-label="Marketing Cycle Detail"]
+         ${visible}=    Run Keyword And Return Status    Element Should Be Visible   ${MC_DETAIL_NEW_BUTTON_XPATH}
         Exit For Loop If    ${visible}
         Execute JavaScript    window.scrollBy(0, 500);
         Sleep    3s
@@ -70,6 +70,7 @@ Search and Create Marketing Cycle Detail
     END
 
 Create New Marketing Cycle Detail
+    Sleep    5s
     Click Element    ${MC_DETAIL_NEW_BUTTON_XPATH}
     Sleep    8s
 
